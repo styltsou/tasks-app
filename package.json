@@ -4,8 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node api/src/server.js",
-    "dev": "nodemon src/server.js"
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "start": "node src/server.js",
+    "dev": "concurrently \"nodemon src/server.js\" \"npm client\""
   },
   "keywords": [],
   "author": "",
@@ -24,6 +26,7 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
+    "concurrently": "^5.0.0",
     "dotenv": "^8.2.0",
     "nodemon": "^1.19.4"
   }
