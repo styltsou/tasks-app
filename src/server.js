@@ -1,5 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 require('dotenv').config({ path: './config/.env' });
 require('./db/mongoose');
 
@@ -12,6 +13,9 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Allow cross-origin requests
+app.use(cors());
 
 // Set up cookie-parser middleware
 app.use(cookieParser(process.env.COOKIE_SECRET));
